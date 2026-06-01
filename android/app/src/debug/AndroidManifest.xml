@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    Debug build: 额外启动入口。
+    安装后桌面会出现两个图标 —— "会议"（MainActivity）和 "开发预览"（DeveloperActivity）。
+    选 "开发预览" 启动后可从下拉列表切换查看任意页面，无需导航。
+    发布 release 时此文件不参与编译，自动排除。
+    -->
+    <application>
+        <activity
+            android:name=".DeveloperActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MeetingApp.Splash" />
+    </application>
+</manifest>

@@ -1,0 +1,45 @@
+<#
+.SYNOPSIS
+  开发提示音 — 开发过程中用声音提醒你
+.DESCRIPTION
+  confirm : 需要你确认操作时（两声短促）
+  done    : 任务完成时（三声上升）
+  error   : 出错时（低沉两声）
+#>
+
+param(
+  [Parameter(Position=0)]
+  [ValidateSet("confirm", "done", "error")]
+  [string]$Type = "confirm"
+)
+
+function Beep($freq, $dur) {
+  try { [System.Console]::Beep($freq, $dur) }
+  catch {
+    try { [System.Media.SystemSounds]::Asterisk.Play() }
+    catch { }
+  }
+}
+
+switch ($Type) {
+  "confirm" {
+    Beep 800 150
+    Start-Sleep -Milliseconds 100
+    Beep 1000 150
+    Write-Host "`n[!] 需要你确认 ↑`n" -ForegroundColor Yellow
+  }
+  "done" {
+    Beep 600 150
+    Start-Sleep -Milliseconds 80
+    Beep 800 150
+    Start-Sleep -Milliseconds 80
+    Beep 1200 250
+    Write-Host "`n[✓] 已完成 ↑`n" -ForegroundColor Green
+  }
+  "error" {
+    Beep 500 250
+    Start-Sleep -Milliseconds 150
+    Beep 350 400
+    Write-Host "`n[✗] 出错 ↑`n" -ForegroundColor Red
+  }
+}

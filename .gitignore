@@ -1,0 +1,23 @@
+# Exclude backend folder
+backend/
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+*.apk
+*.aab
+*.keystore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.mcp.json
+
+# Misc
+*.log
+*.tmp
