@@ -1,6 +1,3 @@
-# Exclude backend folder
-backend/
-
 # Android / Gradle
 .gradle/
 build/
@@ -21,3 +18,7 @@ Thumbs.db
 # Misc
 *.log
 *.tmp
+
+# Backend / Maven
+backend/target/
+backend/uploads/
