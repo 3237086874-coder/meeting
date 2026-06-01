@@ -1,0 +1,7 @@
+target/
+*.log
+*.tmp
+uploads/
+.mvn/
+mvnw
+mvnw.cmd
